@@ -186,11 +186,20 @@ hr {
   background-color: #c14b0b;
   color: #f9f7f3;
 }
+.books__table__body .books__table__row {
+  cursor: pointer;
+}
 .books__table__body .books__table__row:nth-child(odd) {
   background-color: #fcdfcf;
 }
+.books__table__body .books__table__row:nth-child(odd):hover, .books__table__body .books__table__row:nth-child(odd):active {
+  background-color: #fcd8c5;
+}
 .books__table__body .books__table__row:nth-child(even) {
   background-color: #fbcfb7;
+}
+.books__table__body .books__table__row:nth-child(even):hover, .books__table__body .books__table__row:nth-child(even):active {
+  background-color: #fac8ad;
 }
 .books__table__cell {
   padding: 0.5rem;

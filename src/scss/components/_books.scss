@@ -1,4 +1,4 @@
-@use '../abstracts/variables' as *;
+@use '../abstracts' as *;
 
 .books {
   &__table {
@@ -13,12 +13,24 @@
     }
 
     &__body {
-      .books__table__row:nth-child(odd) {
-        background-color: lighten($orange, 50%);
-      }
+      .books__table__row {
+        cursor: pointer;
 
-      .books__table__row:nth-child(even) {
-        background-color: lighten($orange, 45%);
+        &:nth-child(odd) {
+          background-color: lighten($orange, 50%);
+
+          @include active {
+            background-color: lighten($orange, 48%);
+          }
+        }
+
+        &:nth-child(even) {
+          background-color: lighten($orange, 45%);
+
+          @include active {
+            background-color: lighten($orange, 43%);
+          }
+        }
       }
     }
 
