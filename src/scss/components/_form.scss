@@ -1,0 +1,68 @@
+@use '../abstracts' as *;
+
+.new-book {
+  margin: 1rem 0;
+
+  &__form {
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+    }
+
+    label {
+      display: inline-block;
+      margin-bottom: 0.25rem;
+      color: #2c2c2c;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    input:not([type='checkbox']) {
+      display: block;
+      width: 100%;
+      padding: 0.25rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.2rem;
+      border: 1px solid #2c2c2c;
+      border-radius: 0.25rem;
+    }
+
+    input[type='checkbox'] {
+      position: relative;
+      height: 1.2rem;
+      width: 1.2rem;
+      margin-left: 0.5rem;
+      margin-bottom: 0.2rem;
+      border: 2px solid $aqua;
+      border-radius: 0.25rem;
+      color: $white;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -o-appearance: none;
+      appearance: none;
+      cursor: pointer;
+      @include transition();
+      @include shadow(0.25rem);
+
+      @include active {
+        border-color: lighten($aqua, 5%);
+      }
+
+      &:checked {
+        background-color: $aqua;
+
+        @include active {
+          background-color: lighten($aqua, 5%);
+        }
+
+        &::before {
+          content: '\2713';
+          display: block;
+          position: absolute;
+          left: 0.1rem;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

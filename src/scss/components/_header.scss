@@ -1,0 +1,13 @@
+@use '../abstracts/variables' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+
+  &__title {
+    color: $orange;
+    font-size: 1.8rem;
+  }
+}

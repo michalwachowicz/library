@@ -1,0 +1,30 @@
+@use '../abstracts/variables' as *;
+
+.books {
+  &__table {
+    width: 100%;
+    border-spacing: 0;
+
+    &__header {
+      .books__table__row {
+        background-color: $orange;
+        color: $white;
+      }
+    }
+
+    &__body {
+      .books__table__row:nth-child(odd) {
+        background-color: lighten($orange, 50%);
+      }
+
+      .books__table__row:nth-child(even) {
+        background-color: lighten($orange, 45%);
+      }
+    }
+
+    &__cell {
+      padding: 0.5rem;
+      text-align: left;
+    }
+  }
+}
