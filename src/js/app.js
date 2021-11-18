@@ -14,6 +14,8 @@ const booksElement = document.querySelector('.books')
 const booksTableBody = booksElement.querySelector('.books__table__body')
 
 const contextMenu = document.querySelector('.context-menu')
+const deleteBtn = contextMenu.querySelector('#btn-delete')
+const changeBtn = contextMenu.querySelector('#btn-change')
 
 let lastId = 0
 let myLibrary = []
@@ -89,6 +91,12 @@ function createTableCell(text) {
   return cell
 }
 
+function findTableRowByBookId(id) {
+  return Array.from(document.querySelectorAll('.books__table__row')).find(
+    (row) => row.getAttribute('data-book-id') == id
+  )
+}
+
 newBookBtn.addEventListener('click', () => {
   newBookSection.classList.toggle('hidden')
 })
@@ -113,6 +121,41 @@ newBookForm.addEventListener('submit', (e) => {
   }
 
   newBookSection.classList.add('hidden')
+})
+
+deleteBtn.addEventListener('click', () => {
+  contextMenu.classList.add('hidden')
+
+  const id = contextMenu.getAttribute('data-book-id')
+  if (!id) return
+
+  const bookIndex = myLibrary.findIndex((b) => b.id == id)
+  if (bookIndex != -1) {
+    myLibrary.splice(bookIndex, 1)
+  }
+
+  const element = findTableRowByBookId(id)
+  if (element) {
+    booksTableBody.removeChild(element)
+  }
+})
+
+changeBtn.addEventListener('click', () => {
+  contextMenu.classList.add('hidden')
+
+  const id = contextMenu.getAttribute('data-book-id')
+  if (!id) return
+
+  const book = myLibrary.find((b) => b.id == id)
+  if (!book) return
+  book.read = !book.read
+
+  const element = findTableRowByBookId(id)
+  if (!element) return
+
+  element.children[element.children.length - 1].textContent = book.read
+    ? 'Yes'
+    : 'No'
 })
 
 cancelBtn.addEventListener('click', () => {
