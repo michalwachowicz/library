@@ -1,0 +1,35 @@
+@use '../abstracts/mixins' as *;
+
+.context-menu {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 1rem 0;
+  border-radius: 0.5rem;
+
+  .menu-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.5rem;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+    &:last-child {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    @include active {
+      background-color: rgba(0, 0, 0, 0.85);
+    }
+
+    &__icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}

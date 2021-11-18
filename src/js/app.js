@@ -13,9 +13,13 @@ const inputs = {
 const booksElement = document.querySelector('.books')
 const booksTableBody = booksElement.querySelector('.books__table__body')
 
+const contextMenu = document.querySelector('.context-menu')
+
+let lastId = 0
 let myLibrary = []
 
 function Book(name, author, pages, read) {
+  this.id = ++lastId
   this.name = name
   this.author = author
   this.pages = pages
@@ -23,10 +27,10 @@ function Book(name, author, pages, read) {
 }
 
 Book.prototype.addBookToLibrary = function () {
-  const row = createTableRow()
+  const row = createTableRow(this)
 
   for (let prop in this) {
-    if (this.hasOwnProperty(prop)) {
+    if (this.hasOwnProperty(prop) && prop != 'id') {
       const text = prop != 'read' ? this[prop] : this[prop] ? 'Yes' : 'No'
       const cell = createTableCell(text)
 
@@ -40,19 +44,39 @@ Book.prototype.addBookToLibrary = function () {
   showBooks()
 }
 
+function openContextMenu(e, id) {
+  contextMenu.classList.remove('hidden')
+  contextMenu.style.top = `${e.clientY}px`
+  contextMenu.style.left = `${e.clientX}px`
+  contextMenu.setAttribute('data-book-id', id)
+}
+
 function showBooks() {
   if (booksTableBody.childElementCount > 0) {
     booksElement.classList.remove('hidden')
   }
 }
 
-function createTableRow() {
+function createTableRow({ id }) {
   const row = document.createElement('tr')
+  let timer
 
   row.classList.add('books__table__row')
+  row.setAttribute('data-book-id', id)
+
   row.addEventListener('contextmenu', (e) => {
     e.preventDefault()
-    alert('You wanted to open context menu')
+    openContextMenu(e, id)
+  })
+  row.addEventListener('mousedown', (e) => {
+    e.preventDefault()
+    timer = setTimeout(() => {
+      openContextMenu(e, id)
+    }, 750)
+  })
+  row.addEventListener('mouseup', (e) => {
+    e.preventDefault()
+    if (timer) clearTimeout(timer)
   })
 
   return row
@@ -93,4 +117,12 @@ newBookForm.addEventListener('submit', (e) => {
 
 cancelBtn.addEventListener('click', () => {
   newBookSection.classList.add('hidden')
+})
+
+document.addEventListener('click', (e) => {
+  if (e.target != contextMenu && !contextMenu.contains(e.target)) {
+    if (!contextMenu.classList.contains('hidden')) {
+      contextMenu.classList.add('hidden')
+    }
+  }
 })

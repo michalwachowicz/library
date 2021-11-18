@@ -28,6 +28,36 @@ hr {
   display: none;
 }
 
+.context-menu {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 1rem 0;
+  border-radius: 0.5rem;
+}
+.context-menu .menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.context-menu .menu-btn:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.context-menu .menu-btn:hover, .context-menu .menu-btn:active {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+.context-menu .menu-btn__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .btn-container {
   display: flex;
   flex-direction: column;
