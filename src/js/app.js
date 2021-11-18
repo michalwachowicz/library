@@ -43,7 +43,22 @@ Book.prototype.addBookToLibrary = function () {
   booksTableBody.appendChild(row)
   myLibrary.push(this)
 
-  showBooks()
+  toggleBooksVisibility()
+}
+
+function loadLocalStorageData() {
+  if (localStorage.lastId) lastId = +localStorage.lastId
+  else localStorage.lastId = lastId
+
+  if (!localStorage.myLibrary) {
+    localStorage.myLibrary = JSON.stringify([])
+    return
+  }
+
+  for (let obj of JSON.parse(localStorage.myLibrary)) {
+    const book = new Book(obj.name, obj.author, obj.pages, obj.read)
+    book.addBookToLibrary()
+  }
 }
 
 function openContextMenu(e, id) {
@@ -53,9 +68,11 @@ function openContextMenu(e, id) {
   contextMenu.setAttribute('data-book-id', id)
 }
 
-function showBooks() {
+function toggleBooksVisibility() {
   if (booksTableBody.childElementCount > 0) {
     booksElement.classList.remove('hidden')
+  } else {
+    booksElement.classList.add('hidden')
   }
 }
 
@@ -97,6 +114,14 @@ function findTableRowByBookId(id) {
   )
 }
 
+function updateLocalStorageLibrary() {
+  localStorage.myLibrary = JSON.stringify(
+    myLibrary.map((b) => {
+      return { name: b.name, author: b.author, pages: b.pages, read: b.read }
+    })
+  )
+}
+
 newBookBtn.addEventListener('click', () => {
   newBookSection.classList.toggle('hidden')
 })
@@ -121,6 +146,9 @@ newBookForm.addEventListener('submit', (e) => {
   }
 
   newBookSection.classList.add('hidden')
+
+  localStorage.lastId = lastId
+  updateLocalStorageLibrary()
 })
 
 deleteBtn.addEventListener('click', () => {
@@ -132,11 +160,13 @@ deleteBtn.addEventListener('click', () => {
   const bookIndex = myLibrary.findIndex((b) => b.id == id)
   if (bookIndex != -1) {
     myLibrary.splice(bookIndex, 1)
+    updateLocalStorageLibrary()
   }
 
   const element = findTableRowByBookId(id)
   if (element) {
     booksTableBody.removeChild(element)
+    toggleBooksVisibility()
   }
 })
 
@@ -148,7 +178,9 @@ changeBtn.addEventListener('click', () => {
 
   const book = myLibrary.find((b) => b.id == id)
   if (!book) return
+
   book.read = !book.read
+  updateLocalStorageLibrary()
 
   const element = findTableRowByBookId(id)
   if (!element) return
@@ -169,3 +201,5 @@ document.addEventListener('click', (e) => {
     }
   }
 })
+
+loadLocalStorageData()
