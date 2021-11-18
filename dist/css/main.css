@@ -166,5 +166,10 @@ hr {
   padding: 0.5rem;
   text-align: left;
 }
+.books__note {
+  margin-top: 0.5rem;
+  color: #4d4d4d;
+  font-size: 0.75rem;
+}
 
 /*# sourceMappingURL=main.css.map */
