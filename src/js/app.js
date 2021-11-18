@@ -194,11 +194,10 @@ cancelBtn.addEventListener('click', () => {
   newBookSection.classList.add('hidden')
 })
 
-document.addEventListener('click', (e) => {
+document.addEventListener('mousedown', (e) => {
+  e.preventDefault()
   if (e.target != contextMenu && !contextMenu.contains(e.target)) {
-    if (!contextMenu.classList.contains('hidden')) {
-      contextMenu.classList.add('hidden')
-    }
+    contextMenu.classList.add('hidden')
   }
 })
 
