@@ -20,30 +20,32 @@ const changeBtn = contextMenu.querySelector('#btn-change')
 let lastId = 0
 let myLibrary = []
 
-function Book(name, author, pages, read) {
-  this.id = ++lastId
-  this.name = name
-  this.author = author
-  this.pages = pages
-  this.read = read
-}
-
-Book.prototype.addBookToLibrary = function () {
-  const row = createTableRow(this)
-
-  for (let prop in this) {
-    if (this.hasOwnProperty(prop) && prop != 'id') {
-      const text = prop != 'read' ? this[prop] : this[prop] ? 'Yes' : 'No'
-      const cell = createTableCell(text)
-
-      row.appendChild(cell)
-    }
+class Book {
+  constructor(name, author, pages, read) {
+    this.id = ++lastId
+    this.name = name
+    this.author = author
+    this.pages = pages
+    this.read = read
   }
 
-  booksTableBody.appendChild(row)
-  myLibrary.push(this)
+  addToLibrary() {
+    const row = createTableRow(this)
 
-  toggleBooksVisibility()
+    for (let prop in this) {
+      if (this.hasOwnProperty(prop) && prop != 'id') {
+        const text = prop != 'read' ? this[prop] : this[prop] ? 'Yes' : 'No'
+        const cell = createTableCell(text)
+
+        row.appendChild(cell)
+      }
+    }
+
+    booksTableBody.appendChild(row)
+    myLibrary.push(this)
+
+    toggleBooksVisibility()
+  }
 }
 
 function loadLocalStorageData() {
