@@ -59,7 +59,7 @@ function loadLocalStorageData() {
 
   for (let obj of JSON.parse(localStorage.myLibrary)) {
     const book = new Book(obj.name, obj.author, obj.pages, obj.read)
-    book.addBookToLibrary()
+    book.addToLibrary()
   }
 }
 
@@ -137,7 +137,7 @@ newBookForm.addEventListener('submit', (e) => {
     +inputs.pages.value,
     inputs.read.checked
   )
-  book.addBookToLibrary()
+  book.addToLibrary()
 
   for (let input in inputs) {
     if (input == 'read') {
