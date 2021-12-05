@@ -197,7 +197,6 @@ cancelBtn.addEventListener('click', () => {
 })
 
 document.addEventListener('mousedown', (e) => {
-  e.preventDefault()
   if (e.target != contextMenu && !contextMenu.contains(e.target)) {
     contextMenu.classList.add('hidden')
   }
