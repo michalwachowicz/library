@@ -89,17 +89,26 @@ function createTableRow({ id }) {
     e.preventDefault()
     openContextMenu(e, id)
   })
-  row.addEventListener('mousedown', (e) => {
-    e.preventDefault()
-    timer = setTimeout(() => {
-      openContextMenu(e, id)
-    }, 750)
-  })
-  row.addEventListener('mouseup', (e) => {
-    e.preventDefault()
-    if (timer) clearTimeout(timer)
+
+  const startEvents = ['mousedown', 'touchstart']
+  startEvents.forEach((ev) => {
+    row.addEventListener(ev, (e) => {
+      e.preventDefault()
+      e.stopImmediatePropagation()
+      timer = setTimeout(() => {
+        openContextMenu(e, id)
+      }, 750)
+    })
   })
 
+  const endEvents = ['mouseup', 'touchend']
+  endEvents.forEach((ev) => {
+    row.addEventListener(ev, (e) => {
+      e.preventDefault()
+      e.stopImmediatePropagation()
+      if (timer) clearTimeout(timer)
+    })
+  })
   return row
 }
 
@@ -196,10 +205,13 @@ cancelBtn.addEventListener('click', () => {
   newBookSection.classList.add('hidden')
 })
 
-document.addEventListener('mousedown', (e) => {
-  if (e.target != contextMenu && !contextMenu.contains(e.target)) {
-    contextMenu.classList.add('hidden')
-  }
+const touchEvents = ['mousedown', 'touchstart']
+touchEvents.forEach((ev) => {
+  document.addEventListener(ev, (e) => {
+    if (e.target != contextMenu && !contextMenu.contains(e.target)) {
+      contextMenu.classList.add('hidden')
+    }
+  })
 })
 
 loadLocalStorageData()
