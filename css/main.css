@@ -87,7 +87,8 @@ hr {
   box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.2);
 }
 .btn__icon {
-  max-width: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
   margin-right: 0.25rem;
 }
 .btn--small {
