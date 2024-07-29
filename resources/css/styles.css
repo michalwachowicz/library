@@ -124,11 +124,12 @@ body {
 }
 
 .btn-func {
-  padding: 0.25rem 0.75rem;
+  padding: 0.25rem 1.5rem;
   border-radius: 0.5rem;
   font-family: var(--sans-serif);
   font-size: 1.1rem;
   font-weight: 700;
+  color: #fff;
 }
 
 .btn-func:hover,
@@ -142,6 +143,24 @@ body {
   align-items: center;
   color: var(--main-color);
   background-color: #fff;
+}
+
+.btn-cancel {
+  background-color: #dc2626;
+}
+
+.btn-cancel:hover,
+.btn-cancel:active {
+  background-color: #b91c1c;
+}
+
+.btn-accept {
+  background-color: #16a34a;
+}
+
+.btn-accept:hover,
+.btn-accept:active {
+  background-color: #15803d;
 }
 
 .hidden {
