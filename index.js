@@ -8,10 +8,14 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+const renderBook = ({ title, author, read }) => {};
+
 const renderBooks = () => {
   while (bookContainer.firstChild) {
     bookContainer.removeChild(bookContainer.lastChild);
   }
+
+  myLibrary.forEach(renderBook);
 };
 
 Book.prototype.addToLibrary = function () {
