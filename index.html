@@ -12,20 +12,30 @@
     <dialog id="add-edit-dialog">
       <h3 class="dialog-title">Add a new book</h3>
       <form id="add-edit-form">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" required />
+        <div>
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required />
+        </div>
 
-        <label for="author">Author:</label>
-        <input type="text" id="author" name="author" required />
+        <div>
+          <label for="author">Author:</label>
+          <input type="text" id="author" name="author" required />
+        </div>
 
-        <label for="pages">Pages:</label>
-        <input type="number" id="pages" name="pages" min="1" required />
+        <div>
+          <label for="pages">Pages:</label>
+          <input type="number" id="pages" name="pages" min="1" required />
+        </div>
 
-        <input type="checkbox" id="read" name="read" />
-        <label for="read">Did you read this book?</label>
+        <div>
+          <input type="checkbox" id="read" name="read" />
+          <label for="read">Did you read this book?</label>
+        </div>
 
-        <button type="button" class="btn btn-func btn-cancel">Cancel</button>
-        <button type="submit" class="btn btn-func btn-accept">Add</button>
+        <div class="diagram-btn-container">
+          <button type="button" class="btn btn-func btn-cancel">Cancel</button>
+          <button type="submit" class="btn btn-func btn-accept">Add</button>
+        </div>
       </form>
     </dialog>
     <div class="header">
