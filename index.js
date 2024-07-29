@@ -1,4 +1,10 @@
+const addEditDialog = document.querySelector("#add-edit-dialog");
+
+const newDialogBtn = document.querySelector("#btn-new");
+const cancelDiagramBtns = document.querySelectorAll(".btn-cancel");
+
 const bookContainer = document.querySelector(".book-container");
+
 const myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -126,3 +132,24 @@ Book.prototype.addToLibrary = function () {
   myLibrary.push(this);
   renderBooks();
 };
+
+const findDialog = (path) => {
+  for (let element of path) {
+    if (element.tagName && element.tagName.toLowerCase() === "dialog") {
+      return element;
+    }
+  }
+
+  return null;
+};
+
+newDialogBtn.addEventListener("click", () => {
+  addEditDialog.showModal();
+});
+
+cancelDiagramBtns.forEach((cancelBtn) =>
+  cancelBtn.addEventListener("click", (e) => {
+    let dialog = findDialog(e.composedPath());
+    if (dialog) dialog.close();
+  })
+);
