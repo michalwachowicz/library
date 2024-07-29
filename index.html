@@ -9,6 +9,25 @@
     <script src="./index.js" defer></script>
   </head>
   <body>
+    <dialog class="dialog" id="add-edit-dialog">
+      <h3 class="dialog-title">Add a new book</h3>
+      <form id="add-edit-form">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required />
+
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required />
+
+        <label for="pages">Pages:</label>
+        <input type="number" id="pages" name="pages" min="1" required />
+
+        <input type="checkbox" id="read" name="read" />
+        <label for="read">Did you read this book?</label>
+
+        <button type="button" class="btn btn-func btn-cancel">Cancel</button>
+        <button type="submit" class="btn btn-func btn-accept">Add</button>
+      </form>
+    </dialog>
     <div class="header">
       <div class="container header-content">
         <h1>Library</h1>
