@@ -204,7 +204,7 @@ dialog input[type="number"] {
 
 dialog input[type="text"]:invalid,
 dialog input[type="number"]:invalid {
-  border: 1px solid #dc2626;
+  border: 0.1rem solid #dc2626;
 }
 
 dialog input[type="text"]::placeholder,
@@ -225,7 +225,7 @@ dialog input[type="checkbox"] {
   appearance: none;
   width: 1.5rem;
   height: 1.5rem;
-  border: 2px solid var(--checkbox-color);
+  border: 0.1rem solid var(--checkbox-color);
 }
 
 dialog input[type="checkbox"]::before {
