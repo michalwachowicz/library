@@ -194,6 +194,16 @@ addEditForm.addEventListener("submit", (e) => {
   addEditDialog.close();
 });
 
+deleteForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const index = deleteDialog.dataset.index;
+  myLibrary.splice(index, 1);
+
+  renderBooks();
+  deleteDialog.close();
+});
+
 bookContainer.addEventListener("click", (e) => {
   let target = e.target;
 
