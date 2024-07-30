@@ -1,7 +1,7 @@
 const addEditDialog = document.querySelector("#add-edit-dialog");
 
 const newDialogBtn = document.querySelector("#btn-new");
-const cancelDiagramBtns = document.querySelectorAll(".btn-cancel");
+const cancelDialogBtns = document.querySelectorAll(".btn-cancel");
 
 const bookContainer = document.querySelector(".book-container");
 
@@ -147,7 +147,7 @@ newDialogBtn.addEventListener("click", () => {
   addEditDialog.showModal();
 });
 
-cancelDiagramBtns.forEach((cancelBtn) =>
+cancelDialogBtns.forEach((cancelBtn) =>
   cancelBtn.addEventListener("click", (e) => {
     let dialog = findDialog(e.composedPath());
     if (dialog) dialog.close();
