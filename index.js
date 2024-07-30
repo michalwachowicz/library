@@ -247,6 +247,13 @@ bookContainer.addEventListener("click", (e) => {
 
     addEditTitle.textContent = "Edit selected book";
     addEditConfirm.textContent = "Edit";
+
+    const { title, author, pages, read } = myLibrary[bookIndex];
+
+    titleInput.value = title;
+    authorInput.value = author;
+    pagesInput.value = pages;
+    readInput.checked = read;
     return;
   }
 
