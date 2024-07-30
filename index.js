@@ -4,6 +4,9 @@ const cancelDialogBtns = document.querySelectorAll(".btn-cancel");
 const addEditDialog = document.querySelector("#add-edit-dialog");
 const addEditForm = document.querySelector("#add-edit-form");
 
+const deleteDialog = document.querySelector("#delete-dialog");
+const deleteForm = document.querySelector("#delete-form");
+
 const titleInput = document.querySelector("#title");
 const authorInput = document.querySelector("#author");
 const pagesInput = document.querySelector("#pages");
@@ -217,5 +220,8 @@ bookContainer.addEventListener("click", (e) => {
     return;
   }
 
-  if (classList.contains("btn-delete"));
+  if (classList.contains("btn-delete")) {
+    deleteDialog.dataset.index = bookIndex;
+    deleteDialog.showModal();
+  }
 });
