@@ -1,7 +1,13 @@
-const addEditDialog = document.querySelector("#add-edit-dialog");
-
 const newDialogBtn = document.querySelector("#btn-new");
 const cancelDialogBtns = document.querySelectorAll(".btn-cancel");
+
+const addEditDialog = document.querySelector("#add-edit-dialog");
+const addEditForm = document.querySelector("#add-edit-form");
+
+const titleInput = document.querySelector("#title");
+const authorInput = document.querySelector("#author");
+const pagesInput = document.querySelector("#pages");
+const readInput = document.querySelector("#read");
 
 const bookContainer = document.querySelector(".book-container");
 
@@ -153,3 +159,17 @@ cancelDialogBtns.forEach((cancelBtn) =>
     if (dialog) dialog.close();
   })
 );
+
+addEditForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const book = new Book(
+    titleInput.value,
+    authorInput.value,
+    pagesInput.value,
+    readInput.checked
+  );
+
+  book.addToLibrary();
+  addEditDialog.close();
+});
