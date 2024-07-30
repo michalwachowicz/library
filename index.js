@@ -167,12 +167,16 @@ const setInputValues = (title, author, pages, read) => {
   readInput.checked = read;
 };
 
-newDialogBtn.addEventListener("click", () => {
+const showAddEditDialog = (index, title, submitText) => {
   addEditDialog.showModal();
-  addEditDialog.dataset.index = -1;
+  addEditDialog.dataset.index = index;
 
-  addEditTitle.textContent = "Add a new book";
-  addEditConfirm.textContent = "Add";
+  addEditTitle.textContent = title;
+  addEditConfirm.textContent = submitText;
+};
+
+newDialogBtn.addEventListener("click", () => {
+  showAddEditDialog(-1, "Add a new book", "Add");
 });
 
 cancelDialogBtns.forEach((cancelBtn) =>
@@ -238,11 +242,7 @@ bookContainer.addEventListener("click", (e) => {
   }
 
   if (classList.contains("btn-edit")) {
-    addEditDialog.showModal();
-    addEditDialog.dataset.index = bookIndex;
-
-    addEditTitle.textContent = "Edit selected book";
-    addEditConfirm.textContent = "Edit";
+    showAddEditDialog(bookIndex, "Edit the selected book", "Edit");
 
     const { title, author, pages, read } = myLibrary[bookIndex];
     setInputValues(title, author, pages, read);
