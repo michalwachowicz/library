@@ -10,7 +10,7 @@
   </head>
   <body>
     <dialog id="add-edit-dialog">
-      <h3 class="dialog-title">Add a new book</h3>
+      <h3 class="dialog-title" id="add-edit-tile">Add a new book</h3>
       <form id="add-edit-form">
         <div>
           <label for="title">Title:</label>
@@ -34,7 +34,13 @@
 
         <div class="diagram-btn-container">
           <button type="button" class="btn btn-func btn-cancel">Cancel</button>
-          <button type="submit" class="btn btn-func btn-accept">Add</button>
+          <button
+            type="submit"
+            class="btn btn-func btn-accept"
+            id="btn-add-edit-confirm"
+          >
+            Add
+          </button>
         </div>
       </form>
     </dialog>
