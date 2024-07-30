@@ -1,6 +1,7 @@
 :root {
   --main-color: #1e3a8a;
   --book-text: #fde047;
+  --checkbox-color: #1d4ed8;
   --content-pad: 2rem;
   --sans-serif: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --icon-size: 1.75rem;
@@ -209,6 +210,38 @@ dialog input[type="number"]:invalid {
 dialog input[type="text"]::placeholder,
 dialog input[type="number"]::placeholder {
   color: #9ca3af;
+}
+
+dialog input[type="checkbox"],
+dialog input[type="checkbox"]::before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.25rem;
+}
+
+dialog input[type="checkbox"] {
+  cursor: pointer;
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid var(--checkbox-color);
+}
+
+dialog input[type="checkbox"]::before {
+  content: "✓";
+  width: 1.1rem;
+  height: 1.1rem;
+  color: #fff;
+  background-color: var(--checkbox-color);
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: transform 0.2s ease-in-out;
+  transform: scale(0);
+}
+
+dialog input[type="checkbox"]:checked::before {
+  transform: scale(1);
 }
 
 .dialog-title {
