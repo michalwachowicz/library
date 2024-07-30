@@ -249,6 +249,12 @@ dialog input[type="checkbox"]:checked::before {
   margin-bottom: 1rem;
 }
 
+.dialog-checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .dialog-btn-container {
   display: flex;
   justify-content: flex-end;
