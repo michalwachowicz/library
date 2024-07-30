@@ -169,6 +169,7 @@ const findBook = (path) => {
 
 newDialogBtn.addEventListener("click", () => {
   addEditDialog.showModal();
+  addEditDialog.dataset.index = -1;
 
   addEditTitle.textContent = "Add a new book";
   addEditConfirm.textContent = "Add";
@@ -190,14 +191,22 @@ addEditForm.addEventListener("submit", (e) => {
     pagesInput.value,
     readInput.checked
   );
+  const index = addEditDialog.dataset.index;
 
   titleInput.value = "";
   authorInput.value = "";
   pagesInput.value = "";
   readInput.checked = false;
 
-  book.addToLibrary();
   addEditDialog.close();
+
+  if (index < 0) {
+    book.addToLibrary();
+    return;
+  }
+
+  myLibrary[index] = book;
+  renderBooks();
 });
 
 deleteForm.addEventListener("submit", (e) => {
@@ -234,6 +243,7 @@ bookContainer.addEventListener("click", (e) => {
 
   if (classList.contains("btn-edit")) {
     addEditDialog.showModal();
+    addEditDialog.dataset.index = bookIndex;
 
     addEditTitle.textContent = "Edit selected book";
     addEditConfirm.textContent = "Edit";
