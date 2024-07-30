@@ -172,6 +172,11 @@ addEditForm.addEventListener("submit", (e) => {
     readInput.checked
   );
 
+  titleInput.value = "";
+  authorInput.value = "";
+  pagesInput.value = "";
+  readInput.checked = false;
+
   book.addToLibrary();
   addEditDialog.close();
 });
