@@ -15,6 +15,7 @@ const authorInput = document.querySelector("#author");
 const pagesInput = document.querySelector("#pages");
 const readInput = document.querySelector("#read");
 
+const emptyState = document.querySelector(".empty-state");
 const bookContainer = document.querySelector(".book-container");
 
 const myLibrary = [];
@@ -139,7 +140,12 @@ const renderBooks = () => {
     bookContainer.removeChild(bookContainer.lastChild);
   }
 
-  myLibrary.forEach((book, index) => renderBook(book, index));
+  if (myLibrary.length > 0) {
+    myLibrary.forEach((book, index) => renderBook(book, index));
+    emptyState.classList.add("hidden");
+  } else {
+    emptyState.classList.remove("hidden");
+  }
 };
 
 Book.prototype.addToLibrary = function () {
