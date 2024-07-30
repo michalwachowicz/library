@@ -206,6 +206,11 @@ dialog input[type="number"]:invalid {
   border: 1px solid #dc2626;
 }
 
+dialog input[type="text"]::placeholder,
+dialog input[type="number"]::placeholder {
+  color: #9ca3af;
+}
+
 .dialog-title {
   font-size: 1.5rem;
   margin-bottom: 1rem;
