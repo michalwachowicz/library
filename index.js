@@ -44,8 +44,8 @@ const createImage = (src, alt, width, height, ...classList) => {
   return img;
 };
 
-const createButton = (title) => {
-  const btn = createElement("button", null, "btn", "btn-book");
+const createButton = (title, ...classList) => {
+  const btn = createElement("button", null, "btn", "btn-book", classList);
 
   btn.type = "button";
   btn.title = title;
@@ -87,7 +87,7 @@ const renderBook = ({ title, author, read }, index) => {
   bookDetails.appendChild(bookRead);
 
   const bookControls = createElement("div", null, "book-controls");
-  const readBtn = createButton(read ? "Unread" : "Read");
+  const readBtn = createButton(read ? "Unread" : "Read", "btn-read");
   const readIcon = createImage(
     `./resources/icons/${read ? "unread" : "read"}.svg`,
     `Book ${read ? "unread" : "read"} icon`,
@@ -99,7 +99,7 @@ const renderBook = ({ title, author, read }, index) => {
   readBtn.appendChild(readIcon);
   bookControls.appendChild(readBtn);
 
-  const editBtn = createButton("Edit");
+  const editBtn = createButton("Edit", "btn-edit");
   const editIcon = createImage(
     "./resources/icons/edit.svg",
     "Book edit icon",
@@ -111,7 +111,7 @@ const renderBook = ({ title, author, read }, index) => {
   editBtn.appendChild(editIcon);
   bookControls.appendChild(editBtn);
 
-  const deleteBtn = createButton("Delete");
+  const deleteBtn = createButton("Delete", "btn-delete");
   const deleteIcon = createImage(
     "./resources/icons/delete.svg",
     "Book delete icon",
@@ -151,6 +151,16 @@ const findDialog = (path) => {
   return null;
 };
 
+const findBook = (path) => {
+  for (let element of path) {
+    if (element.classList && element.classList.contains("book")) {
+      return element;
+    }
+  }
+
+  return null;
+};
+
 newDialogBtn.addEventListener("click", () => {
   addEditDialog.showModal();
 });
@@ -179,4 +189,31 @@ addEditForm.addEventListener("submit", (e) => {
 
   book.addToLibrary();
   addEditDialog.close();
+});
+
+bookContainer.addEventListener("click", (e) => {
+  let target = e.target;
+
+  if (
+    target.classList.contains("icon") &&
+    target.parentNode.classList.contains("btn")
+  ) {
+    target = target.parentNode;
+  }
+
+  const classList = target.classList;
+  if (!classList.contains("btn")) return;
+
+  const bookElement = findBook(e.composedPath());
+  const bookIndex = bookElement.dataset.index;
+
+  if (classList.contains("btn-read")) {
+    return;
+  }
+
+  if (classList.contains("btn-edit")) {
+    return;
+  }
+
+  if (classList.contains("btn-delete"));
 });
