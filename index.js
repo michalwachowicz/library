@@ -147,25 +147,18 @@ Book.prototype.addToLibrary = function () {
   renderBooks();
 };
 
-const findDialog = (path) => {
+const findElement = (path, filter) => {
   for (let element of path) {
-    if (element.tagName && element.tagName.toLowerCase() === "dialog") {
-      return element;
-    }
+    if (element instanceof HTMLElement && filter(element)) return element;
   }
-
   return null;
 };
 
-const findBook = (path) => {
-  for (let element of path) {
-    if (element.classList && element.classList.contains("book")) {
-      return element;
-    }
-  }
+const findDialog = (path) =>
+  findElement(path, (element) => element.tagName.toLowerCase() === "dialog");
 
-  return null;
-};
+const findBook = (path) =>
+  findElement(path, (element) => element.classList.contains("book"));
 
 newDialogBtn.addEventListener("click", () => {
   addEditDialog.showModal();
