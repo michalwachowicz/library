@@ -268,3 +268,34 @@ dialog input[type="checkbox"]:checked::before {
     gap: 0.75rem;
   }
 }
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--sans-serif);
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.empty-state-img {
+  width: 15rem;
+  height: 15rem;
+  margin-bottom: 1rem;
+}
+
+.empty-title {
+  font-size: 1.5rem;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.empty-description {
+  color: #64748b;
+}
+
+.empty-title span,
+.empty-description strong {
+  color: var(--main-color);
+}
