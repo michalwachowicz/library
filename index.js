@@ -53,8 +53,10 @@ const createButton = (title) => {
   return btn;
 };
 
-const renderBook = ({ title, author, read }) => {
+const renderBook = ({ title, author, read }, index) => {
   const book = createElement("div", null, "book");
+  book.dataset.index = index;
+
   const bookCover = createElement("div", null, "book-cover");
   const bookCoverText = createElement("div", null, "book-cover-text");
   const bookTitle = createElement("h2", title, "book-title");
@@ -131,7 +133,7 @@ const renderBooks = () => {
     bookContainer.removeChild(bookContainer.lastChild);
   }
 
-  myLibrary.forEach(renderBook);
+  myLibrary.forEach((book, index) => renderBook(book, index));
 };
 
 Book.prototype.addToLibrary = function () {
