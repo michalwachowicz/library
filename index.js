@@ -160,6 +160,13 @@ const findDialog = (path) =>
 const findBook = (path) =>
   findElement(path, (element) => element.classList.contains("book"));
 
+const setInputValues = (title, author, pages, read) => {
+  titleInput.value = title;
+  authorInput.value = author;
+  pagesInput.value = pages;
+  readInput.checked = read;
+};
+
 newDialogBtn.addEventListener("click", () => {
   addEditDialog.showModal();
   addEditDialog.dataset.index = -1;
@@ -186,11 +193,7 @@ addEditForm.addEventListener("submit", (e) => {
   );
   const index = addEditDialog.dataset.index;
 
-  titleInput.value = "";
-  authorInput.value = "";
-  pagesInput.value = "";
-  readInput.checked = false;
-
+  setInputValues("", "", "", false);
   addEditDialog.close();
 
   if (index < 0) {
@@ -242,11 +245,8 @@ bookContainer.addEventListener("click", (e) => {
     addEditConfirm.textContent = "Edit";
 
     const { title, author, pages, read } = myLibrary[bookIndex];
+    setInputValues(title, author, pages, read);
 
-    titleInput.value = title;
-    authorInput.value = author;
-    pagesInput.value = pages;
-    readInput.checked = read;
     return;
   }
 
