@@ -1,0 +1,24 @@
+<svg width="2180" height="2180" viewBox="0 0 2180 2180" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="1139.5" cy="1089.5" r="1008.5" fill="#E5E7EB"/>
+<rect x="659" y="1477" width="947" height="199" fill="white"/>
+<path d="M1598 1457.5L1599 1484.5L1626 1480.5L1648 1451V1422.5H1608L1598 1457.5Z" fill="#3B82F6"/>
+<path d="M718 1485V470C643.2 470 623.167 532 622.5 563C622.167 870.333 621.7 1506.6 622.5 1593C623.3 1679.4 686.5 1706 718 1708.5C1002.67 1708.67 1574.5 1708.9 1584.5 1708.5C1597 1708 1611 1704 1630 1689C1645.2 1677 1648.33 1655.33 1648 1646V1430C1648 1442 1638.5 1456.5 1629.5 1465.5C1622.3 1472.7 1606.17 1480.17 1599 1483C1595.5 1494.33 1588.6 1527.1 1589 1567.5C1589.4 1607.9 1595.83 1655.33 1599 1674H718C699.834 1668.83 663.2 1643.3 662 1582.5C660.8 1521.7 698.834 1492.17 718 1485Z" fill="#3B82F6"/>
+<path d="M718 1485V470H1565.5C1622.7 470 1644.33 525 1648 552.5V1424C1648 1465.2 1607.33 1481.83 1587 1485H718Z" fill="#60A5FA"/>
+<rect x="718" y="1520" width="843" height="10" rx="5" fill="#94A3B8"/>
+<rect x="718" y="1631" width="843" height="10" rx="5" fill="#94A3B8"/>
+<rect x="710" y="1557" width="851" height="10" rx="5" fill="#94A3B8"/>
+<rect x="710" y="1594" width="851" height="10" rx="5" fill="#94A3B8"/>
+<circle cx="900" cy="1064" r="65.5" fill="#1F2937" stroke="#1F2937"/>
+<circle cx="1408" cy="1064" r="65.5" fill="#1F2937" stroke="#1F2937"/>
+<path d="M1030 1223C1069.49 1158.86 1174.37 1069.06 1278 1223" stroke="#1F2937" stroke-width="20" stroke-linecap="round"/>
+<circle cx="1850" cy="407" r="85" fill="#60A5FA"/>
+<circle cx="1609" cy="166" r="48" fill="#60A5FA"/>
+<circle cx="283" cy="639" r="82" fill="#3B82F6"/>
+<circle cx="509" cy="810" r="29" fill="#3B82F6"/>
+<circle cx="48.5" cy="1015.5" r="37.5" fill="#6B7280"/>
+<circle cx="1925" cy="1502" r="75" fill="#EF4444"/>
+<path d="M186 1661L266.5 1624L335 1661L411.5 1624L480 1661" stroke="#F87171" stroke-width="20" stroke-linecap="round"/>
+<path d="M1875 904L1955.5 867L2024 904L2100.5 867L2169 904" stroke="#F59E0B" stroke-width="20" stroke-linecap="round"/>
+<path d="M186 1614L266.5 1577L335 1614L411.5 1577L480 1614" stroke="#F87171" stroke-width="20" stroke-linecap="round"/>
+<path d="M1875 857L1955.5 820L2024 857L2100.5 820L2169 857" stroke="#F59E0B" stroke-width="20" stroke-linecap="round"/>
+</svg>
