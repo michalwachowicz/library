@@ -4,6 +4,9 @@ const cancelDialogBtns = document.querySelectorAll(".btn-cancel");
 const addEditDialog = document.querySelector("#add-edit-dialog");
 const addEditForm = document.querySelector("#add-edit-form");
 
+const addEditTitle = document.querySelector("#add-edit-title");
+const addEditConfirm = document.querySelector("#btn-add-edit-confirm");
+
 const deleteDialog = document.querySelector("#delete-dialog");
 const deleteForm = document.querySelector("#delete-form");
 
@@ -166,6 +169,9 @@ const findBook = (path) => {
 
 newDialogBtn.addEventListener("click", () => {
   addEditDialog.showModal();
+
+  addEditTitle.textContent = "Add a new book";
+  addEditConfirm.textContent = "Add";
 });
 
 cancelDialogBtns.forEach((cancelBtn) =>
@@ -227,6 +233,10 @@ bookContainer.addEventListener("click", (e) => {
   }
 
   if (classList.contains("btn-edit")) {
+    addEditDialog.showModal();
+
+    addEditTitle.textContent = "Edit selected book";
+    addEditConfirm.textContent = "Edit";
     return;
   }
 
