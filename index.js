@@ -208,6 +208,8 @@ bookContainer.addEventListener("click", (e) => {
   const bookIndex = bookElement.dataset.index;
 
   if (classList.contains("btn-read")) {
+    myLibrary[bookIndex].read = !myLibrary[bookIndex].read;
+    renderBooks();
     return;
   }
 
