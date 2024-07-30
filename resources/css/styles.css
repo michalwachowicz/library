@@ -192,7 +192,7 @@ dialog label + input[type="number"] {
   margin-bottom: 1rem;
 }
 
-.diagram-btn-container {
+.dialog-btn-container {
   display: flex;
   justify-content: flex-end;
   margin-top: 2rem;
@@ -200,7 +200,7 @@ dialog label + input[type="number"] {
 }
 
 @media screen and (max-width: 400px) {
-  .diagram-btn-container {
+  .dialog-btn-container {
     flex-direction: column-reverse;
     gap: 0.75rem;
   }
