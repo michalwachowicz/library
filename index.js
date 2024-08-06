@@ -20,13 +20,6 @@ const bookContainer = document.querySelector(".book-container");
 
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
-
 const createElement = (type, text, ...classList) => {
   const element = document.createElement(type);
 
@@ -148,11 +141,6 @@ const renderBooks = () => {
   }
 };
 
-Book.prototype.addToLibrary = function () {
-  myLibrary.push(this);
-  renderBooks();
-};
-
 const findElement = (path, filter) => {
   for (let element of path) {
     if (element instanceof HTMLElement && filter(element)) return element;
@@ -180,6 +168,20 @@ const showAddEditDialog = (index, title, submitText) => {
   addEditTitle.textContent = title;
   addEditConfirm.textContent = submitText;
 };
+
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+
+  addToLibrary() {
+    myLibrary.push(this);
+    renderBooks();
+  }
+}
 
 newDialogBtn.addEventListener("click", () => {
   showAddEditDialog(-1, "Add a new book", "Add");
